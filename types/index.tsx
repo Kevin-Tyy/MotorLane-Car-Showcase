@@ -10,6 +10,7 @@ export interface ManufucturerProps {
 	manufacturer: string;
 	setManufacturer: (manufacturer: string) => void;
 }
+
 export interface CarProps {
 	city_mpg: number;
 	class: string;
