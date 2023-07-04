@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 interface Props {
-  title : string
+	title: string;
 }
-const CustomFilter = ({ title } : Props) => {
-  return (
-    <div>CustomFilter</div>
-  )
-}
+const CustomFilter = ({ title }: Props) => {
+	return <div>CustomFilter</div>;
+};
 
-export default CustomFilter
+export default CustomFilter;
