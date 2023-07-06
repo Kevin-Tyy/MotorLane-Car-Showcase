@@ -18,7 +18,7 @@ const Footer = () => {
 						Car hub 2024 all rights reserved &copy;
 					</p>
 				</div>
-				<div className="footer__links"> 
+				<div className="footer__links">
 					{footerLinks.map((link, index) => (
 						<div key={index} className="footer__link">
 							<h3>{link.title}</h3>
