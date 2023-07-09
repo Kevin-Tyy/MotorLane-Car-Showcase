@@ -2,8 +2,14 @@ import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 
-const Home = async () => {
-	const allCars = await fetchCars();
+const Home = async ({ searchParams }) => {
+	const allCars = await fetchCars({
+		manufacture : searchParams.manufucturer || '',
+		year : searchParams.year || 2023,
+		fuel : searchParams.fuel || '',
+		limit : searchParams.limit || 10,
+		model : searchParams.model || ''
+	}); 
 	console.log(allCars);
 	const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 	return (
