@@ -35,6 +35,9 @@ const Home = async ({ searchParams }) => {
 								<CarCard car={car} key={index} />
 							))}
 						</div>
+						<Showmore
+						
+						/>
 					</section>
 				) : (
 					<div className="home__error-container">
