@@ -1,9 +1,9 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 
-const Home = async ({ searchParams }) => {
+const Home = async ({ searchParams } : any) => {
 	const allCars = await fetchCars({
 		manufacturer : searchParams.manufacturer || '',
 		year : searchParams.year || 2023,
@@ -35,14 +35,16 @@ const Home = async ({ searchParams }) => {
 								<CarCard car={car} key={index} />
 							))}
 						</div>
-						<Showmore
-						
+						<ShowMore
+							pageNumber={(searchParams?.limit || 10) /10}
+							isNext = {(searchParams?.limit || 10) > allCars?.length} 
+							
 						/>
 					</section>
 				) : (
 					<div className="home__error-container">
 						<h2 className="text-black text-xl font-bold">
-							Oops! We have no cars at the moment
+							Oops! We have no cars at the moment 
 						</h2>
 						<p>{allCars?.message}</p>
 					</div>
