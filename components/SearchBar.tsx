@@ -15,8 +15,8 @@ const SearchButton = ({ customClasses }: { customClasses: string }) => (
 		/>
 	</button>
 );
-const SearchBar = () => {
-	const [manufacturer, setManufacturer] = useState("");
+const SearchBar = (setManufacturer, setModel) => {
+	const [searchManufacturer] = useState("");
 	const router = useRouter();
 	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -42,7 +42,6 @@ const SearchBar = () => {
 		}?${searchParams.toString()}`;
 		router.push(newPathname);
 	};
-	const [model, setModel] = useState("");
 
 	return (
 		<form action="" className="searchbar" onSubmit={handleSearch}>
