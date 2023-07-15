@@ -47,14 +47,14 @@ const SearchBar = ({setManufacturer, setModel } : any) => {
 	};
 
 	return (
-		<form action="" className="searchbar" onSubmit={handleSearch}>
-			<div className="searchbar__item">
+		<form action="" className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl" onSubmit={handleSearch}>
+			<div className="flex-1 max-sm:w-full flex justify-start items-center relative">
 				<SearchManufucturer
 					selected={searchManufacturer}
 					setSelected={setSearchManufacturer}
 				/>
 				<SearchButton customClasses="sm:hidden" />
-				<div className="searchbar__item">
+				<div className="flex-1 max-sm:w-full flex justify-start items-center relative">
 					<Image
 						src="/model-icon.png"
 						alt="model icon"
@@ -68,7 +68,7 @@ const SearchBar = ({setManufacturer, setModel } : any) => {
 						value={searchModel}
 						onChange={(e) => setSearchModel(e.target.value)}
 						placeholder="Tiguan"
-						className="searchbar__input"
+						className="w-full h-[48px] pl-12 p-4 bg-light-white dark:bg-neutral-800 rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm"
 					/>
 				</div>
 				<SearchButton customClasses="sm:hidden" />

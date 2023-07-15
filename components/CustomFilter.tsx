@@ -21,7 +21,7 @@ const CustomFilter = ({ title, options , setFilter}: CustomFilterProps) => {
 					setFilter(e.value);
 				}}>
 				<div className="relative w-fit z-10">
-					<Listbox.Button className="custom-filter__btn">
+					<Listbox.Button className="relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border">
 						<span className="block truncate">{selected.title}</span>
 						<Image
 							src="/chevron-up-down.svg"
@@ -36,7 +36,7 @@ const CustomFilter = ({ title, options , setFilter}: CustomFilterProps) => {
 						leave="transition ease-in duration-100"
 						leaveFrom="opacity-100"
 						leaveTo="opacity-0">
-						<Listbox.Options className="custom-filter__options">
+						<Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
 							{options.map((option) => (
 								<Listbox.Option
 									key={option.title}

@@ -1,11 +1,11 @@
 import { Footer, Navbar } from "@/components";
-import "./globals.css";
+import "../styles/globals.css";
+import Providers from "./Providers";
 
 export const metadata = {
 	title: "Car Hub",
 	description: "Discover the best cars in the world",
 };
-
 export default function RootLayout({
 	children,
 }: {
@@ -13,10 +13,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="relative">
-				<Navbar />
-				{children}
-				<Footer />
+			<body className="relative transition duration-1000">
+				<Providers>
+					<Navbar />
+					{children}
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);

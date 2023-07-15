@@ -14,14 +14,14 @@ const CarCard = ({ car }: Props) => {
 	const carRent = calculateCarRent(city_mpg, year);
 	const [isOpen , setIsOpen] = useState(false)
 	return (
-		<div className="car-card group">
-			<div className="car-card__content">
-				<h2 className="car-card__content-title">
+		<div className="flex flex-col p-6 justify-center items-start text-black-100 dark:text-slate-200 bg-primary-blue-100 dark:bg-neutral-800/70 dark:hover:bg-neutral-950/70 hover:shadow-md rounded-3xl group">
+			<div className="w-full flex justify-between items-start gap-2">
+				<h2 className="text-[22px] leading-[26px] font-bold capitalize">
 					{make} {model}
 				</h2>
 			</div>
 			<p className="flex mt-6 text-[32px] font-extrabold">
-				<span className="self-start text-[14px] font-semibold ">$</span>
+				<span className="self-start text-[14px] font-semibold">$</span>
 				{carRent}
 				<span className="self-end text-[14px] font-medium">/day</span>
 			</p>
@@ -50,7 +50,7 @@ const CarCard = ({ car }: Props) => {
 						<p className="text-[14px]">{city_mpg} MPG</p>
 					</div>
 				</div>
-				<div className="car-card__btn-container">
+				<div className="hidden group-hover:flex absolute bottom-0 w-full z-10">
 					<CustomButton
 						title="View more"
 						containerStyles="w-full py-[16px] rounded-full bg-primary-blue"

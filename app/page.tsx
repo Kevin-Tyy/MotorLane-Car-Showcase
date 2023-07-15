@@ -39,24 +39,24 @@ const Home = ({ searchParams }: any) => {
 		<main className="overflow-hidden">
 			<Hero />
 			<div className="mt-12 padding-x padding-y max-width" id="discover">
-				<div className="home__text-container">
-					<h1 className="text-4xl font-extrabold">Car catalogue</h1>
-					<p>Explore the cars you might like</p>
+				<div className=" flex flex-col items-start justify-start gap-y-2.5 text-black-100">
+					<h1 className="text-4xl font-extrabold dark:text-slate-200">Car catalogue</h1>
+					<p className="dark:text-slate-400">Explore the cars you might like</p>
 				</div>
-				<div className="home__filters">
+				<div className="mt-12 w-full flex-between items-center flex-wrap gap-5">
 					<SearchBar 
 						setModel={setModel}
 						setManufacturer={setManufacturer}
 					
 					/>
-					<div className="home__filter-container">
+					<div className="flex justify-start flex-wrap items-center gap-2">
 						<CustomFilter title="fuel" options={fuels} setFilter={setFuel} />
 						<CustomFilter title="year" options={yearsOfProduction} setFilter={setYear}/>
 					</div>
 				</div>
 				{allCars.length > 0 ? (
 					<section>
-						<div className="home__cars-wrapper">
+						<div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
 							{allCars?.map((car, index) => (
 								<CarCard car={car} key={index} />
 							))}
@@ -73,9 +73,9 @@ const Home = ({ searchParams }: any) => {
 						/>
 					</section>
 				) : (
-					<div className="home__error-container">
-						<h2 className="text-black text-xl font-bold">
-							Oops! No results
+					<div className="mt-16 flex justify-center items-center flex-col gap-2">
+						<h2 className="text-black dark:text-slate-200 text-xl font-bold">
+							😢 Oops! No results
 						</h2>
 					</div>
 				)}

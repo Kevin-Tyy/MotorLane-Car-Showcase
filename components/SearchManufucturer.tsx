@@ -19,7 +19,7 @@ const SearchManufucturer = ({
 						.includes(query.toLowerCase().replace(/\s+/g, ""))
 			  );
 	return (
-		<div className="search-manufacturer">
+		<div className="flex-1 max-sm:w-full flex justify-start items-center">
 			<Combobox value={selected} onChange={setSelected}>
 				<div className="relative w-full">
 					<Combobox.Button className="absolute top-[14px]">
@@ -32,7 +32,7 @@ const SearchManufucturer = ({
 						/>
 					</Combobox.Button>
 					<Combobox.Input
-						className="search-manufacturer__input"
+						className="w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white dark:bg-neutral-800 outline-none cursor-pointer text-sm"
 						placeholder="Volkswagen"
 						displayValue={(manufucturer: string) => manufucturer}
 						onChange={(e: any) => setQuery(e.target.value)}
@@ -47,7 +47,7 @@ const SearchManufucturer = ({
 							{filteredManufuctures.length == 0 && query !== "" ? (
 								<Combobox.Option
 									value={query}
-									className="search-manufacturer__option">
+									className="cursor-default select-none py-2 pl-10 pr-4">
 									Create "{query}"
 								</Combobox.Option>
 							) : (
@@ -55,8 +55,8 @@ const SearchManufucturer = ({
 									<Combobox.Option
 										key={index}
 										className={({ active }) =>
-											`relative  search-manufacturer__option ${
-												active ? "bg-primary-blue text-white" : "text-gray-900"
+											`relative cursor-default select-none py-2 pl-10 pr-4 ${
+												active ? "bg-primary-blue text-white" : "text-gray-900 dark:text-slate-400 bg-neutral-900"
 											}`
 										}
 										value={item}>
