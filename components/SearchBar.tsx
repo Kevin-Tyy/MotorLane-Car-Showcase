@@ -16,14 +16,16 @@ const SearchButton = ({ customClasses }: { customClasses: string }) => (
 	</button>
 );
 const SearchBar = (setManufacturer, setModel) => {
-	const [searchManufacturer] = useState("");
+	const [searchManufacturer , setSearchManufacturer] = useState("");
+	const [searchModel , setSearchModel] = useState("");
 	const router = useRouter();
 	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (manufacturer === "" && model === "") {
+		if (searchManufacturer === "" && searchModel === "") {
 			return alert("Please  fill in the search bar");
 		}
-		updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+
+		updateSearchParams(searchModel.toLowerCase(), searchManufacturer.toLowerCase());
 	};
 	const updateSearchParams = (model: string, manufacturer: string) => {
 		const searchParams = new URLSearchParams(window.location.search);
