@@ -75,9 +75,8 @@ const Home = ({ searchParams }: any) => {
 				) : (
 					<div className="home__error-container">
 						<h2 className="text-black text-xl font-bold">
-							Oops! We have no cars at the moment
+							Oops! No results
 						</h2>
-						<p>{allCars?.message}</p>
 					</div>
 				)}
 			</div>

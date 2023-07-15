@@ -15,7 +15,7 @@ const SearchButton = ({ customClasses }: { customClasses: string }) => (
 		/>
 	</button>
 );
-const SearchBar = (setManufacturer, setModel) => {
+const SearchBar = ({setManufacturer, setModel } : any) => {
 	const [searchManufacturer , setSearchManufacturer] = useState("");
 	const [searchModel , setSearchModel] = useState("");
 	const router = useRouter();
@@ -25,7 +25,8 @@ const SearchBar = (setManufacturer, setModel) => {
 			return alert("Please  fill in the search bar");
 		}
 
-		updateSearchParams(searchModel.toLowerCase(), searchManufacturer.toLowerCase());
+		setModel(searchModel)
+		setManufacturer(searchManufacturer)
 	};
 	const updateSearchParams = (model: string, manufacturer: string) => {
 		const searchParams = new URLSearchParams(window.location.search);
@@ -49,8 +50,8 @@ const SearchBar = (setManufacturer, setModel) => {
 		<form action="" className="searchbar" onSubmit={handleSearch}>
 			<div className="searchbar__item">
 				<SearchManufucturer
-					manufacturer={manufacturer}
-					setManufacturer={setManufacturer}
+					selected={searchManufacturer}
+					setSelected={setSearchManufacturer}
 				/>
 				<SearchButton customClasses="sm:hidden" />
 				<div className="searchbar__item">
@@ -64,8 +65,8 @@ const SearchBar = (setManufacturer, setModel) => {
 					<input
 						type="text"
 						name="model"
-						value={model}
-						onChange={(e) => setModel(e.target.value)}
+						value={searchModel}
+						onChange={(e) => setSearchModel(e.target.value)}
 						placeholder="Tiguan"
 						className="searchbar__input"
 					/>
