@@ -5,6 +5,7 @@ import { generateCarImageUrl } from "@/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment } from "react";
+import CustomButton from "./CustomButton";
 interface CarDetailProps {
 	isOpen: boolean;
 	closeModal: () => void;
@@ -62,9 +63,14 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 										</div>
 										<div className="flex justify-center items-center gap-3">
 											{imageAngles.map((_, index) => (
-												<div key={index} className="flex-1 relative w-full h-24 bg-primary-blue-100 dark:bg-neutral-700 hover:bg-primary-blue/20 dark:hover:bg-neutral-600 rounded-lg">
+												<div
+													key={index}
+													className="flex-1 relative w-full h-24 bg-primary-blue-100 dark:bg-neutral-700 hover:bg-primary-blue/20 dark:hover:bg-neutral-600 rounded-lg">
 													<Image
-														src={generateCarImageUrl(car, index == 0 ? '29' : index == 1 ? '33' : '13')}
+														src={generateCarImageUrl(
+															car,
+															index == 0 ? "29" : index == 1 ? "33" : "13"
+														)}
 														alt="car"
 														fill
 														priority
@@ -92,6 +98,11 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 												</div>
 											))}
 										</div>
+										<CustomButton
+											title="Rent this car"
+											containerStyles="w-full py-[16px] rounded-full bg-primary-blue mt-4"
+											textStyles="text-white text-[14px] leading-[17px] font-bold"
+										/>
 									</div>
 								</Dialog.Panel>
 							</Transition.Child>
