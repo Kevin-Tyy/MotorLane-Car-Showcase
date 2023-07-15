@@ -16,7 +16,7 @@ export default function RootLayout({
 			<body className="relative transition duration-1000">
 				<Providers>
 					<Navbar />
-					{children}
+					<main>{children}</main>
 					<Footer />
 				</Providers>
 			</body>
