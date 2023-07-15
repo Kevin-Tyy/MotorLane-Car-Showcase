@@ -2,18 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { footerLinks } from "@/constants";
+import Logo from "./Logo";
 const Footer = () => {
 	return (
 		<footer className="flex flex-col text-black-100 mt-5  px-20">
 			<div className="flex max-md:flex-col flex-wrap justify-between gap-5 border-t border-slate-600 sm:px-16 px-6 py-10">
 				<div className="flex flex-col justify-start items-start gap-6">
-					<Image
-						src="/logo.svg"
-						alt="logo"
-						width={118}
-						height={18}
-						className="object-contain"
-					/>
+					<Logo/>
 					<p className="text-base text-gray-700 dark:text-slate-400">
 						Motor Lane 2024 all rights reserved &copy;
 					</p>

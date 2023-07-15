@@ -11,6 +11,8 @@ interface CarDetailProps {
 	car: CarProps;
 }
 
+const imageAngles = Array(3).fill(null);
+
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 	return (
 		<>
@@ -36,10 +38,10 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 								leave="ease-in duration-200"
 								leaveFrom="opacity-100 scale-100"
 								leaveTo="opacity-0 scale-95">
-								<Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left  shadow-xl transition-all flex flex-col gap-5">
+								<Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left  shadow-xl transition-all flex flex-col gap-5">
 									<button
 										type="button"
-										className="absolute top-2 right-0  z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+										className="absolute top-2 right-0  z-10 w-fit p-2 bg-primary-blue-100 dark:bg-neutral-200 rounded-full"
 										onClick={closeModal}>
 										<Image
 											src="/close.svg"
@@ -59,33 +61,17 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 											/>
 										</div>
 										<div className="flex justify-center items-center gap-3">
-											<div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-												<Image
-													src={generateCarImageUrl(car, "29")}
-													alt="car"
-													fill
-													priority
-													className="object-contain"
-												/>
-											</div>
-											<div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-												<Image
-													src={generateCarImageUrl(car, "33")}
-													alt="car"
-													fill
-													priority
-													className="object-contain"
-												/>
-											</div>
-											<div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-												<Image
-													src={generateCarImageUrl(car, "13")}
-													alt="car"
-													fill
-													priority
-													className="object-contain"
-												/>
-											</div>
+											{imageAngles.map((_, index) => (
+												<div key={index} className="flex-1 relative w-full h-24 bg-primary-blue-100 dark:bg-neutral-700 hover:bg-primary-blue/20 dark:hover:bg-neutral-600 rounded-lg">
+													<Image
+														src={generateCarImageUrl(car, index == 0 ? '29' : index == 1 ? '33' : '13')}
+														alt="car"
+														fill
+														priority
+														className="object-contain"
+													/>
+												</div>
+											))}
 										</div>
 									</div>
 									<div className="flex-1 flex flex-col gap-2">
@@ -97,10 +83,10 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailProps) => {
 												<div
 													className="flex justify-between gap-5 w-full text-right"
 													key={key}>
-													<h4 className="text-grey capitalize">
+													<h4 className="text-grey capitalize dark:text-slate-200">
 														{key.split("_").join(" ")}
 													</h4>
-													<p className="text-black-100 font-semibold">
+													<p className="text-black-100 font-semibold dark:text-slate-400">
 														{value}
 													</p>
 												</div>

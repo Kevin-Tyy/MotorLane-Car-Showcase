@@ -14,7 +14,7 @@ const ThemeSwitcher = () => {
 		setTheme(theme == "dark" ? "light" : "dark");
 	};
 	return (
-		<button onClick={switchTheme} className="">
+		<button onClick={switchTheme} className="bg-white rounded-full text-black p-2">
 			{theme == "dark" ? (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

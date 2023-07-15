@@ -12,14 +12,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className="relative transition duration-1000">
-				<Providers>
+		<html lang="en" suppressHydrationWarning>
+			<Providers>
+				<body className="relative dark:bg-neutral-900 transition duration-500">
 					<Navbar />
 					<main>{children}</main>
 					<Footer />
-				</Providers>
-			</body>
+				</body>
+			</Providers>
 		</html>
 	);
 }
