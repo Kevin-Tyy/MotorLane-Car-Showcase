@@ -48,7 +48,7 @@ const SearchManufucturer = ({
 								<Combobox.Option
 									value={query}
 									className="cursor-default select-none py-2 pl-10 pr-4">
-									Create "{query}"
+									Create &ldquot;{query}&rdquot;
 								</Combobox.Option>
 							) : (
 								filteredManufuctures.map((item, index) => (
