@@ -18,6 +18,7 @@ const SignIn = ({ isOpen, closeModal }: Props) => {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 		// Perform login logic here
+		alert('Feature under development');
 	};
 
 	const handleShowPassword = () => {
@@ -63,7 +64,7 @@ const SignIn = ({ isOpen, closeModal }: Props) => {
 										/>
 									</button>
 									<div>
-										<form className="p-4 flex flex-col gap-8">
+										<form onSubmit={handleSubmit} className="p-4 flex flex-col gap-8">
 											<div className="text-center">
 												<p className="text-slate-700 dark:text-slate-200">
                                                     {side ? 'Sign in to': 'Join'}

@@ -56,7 +56,7 @@ const SearchManufucturer = ({
 										key={index}
 										className={({ active }) =>
 											`relative cursor-default select-none py-2 pl-10 pr-4 ${
-												active ? "bg-primary-blue text-white" : "text-gray-900 dark:text-slate-400 bg-neutral-900"
+												active ? "bg-primary-blue text-white" : "text-gray-900 dark:text-slate-400 dark:bg-neutral-900"
 											}`
 										}
 										value={item}>
